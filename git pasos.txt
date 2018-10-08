@@ -1,0 +1,130 @@
+iniciar git bash en la carpeta madre donde se creará el repositorio
+git clone <<ruta http del repositorio remoto>>
+
+ver archivos modificados 
+git status
+
+agregar cambios al head 
+git add
+
+crear un commit
+git commit -m "Texto que indica que cambios se realizaron"
+
+Método abreviado para realizar y comit en un mismo comando
+git commit -a -m "Texto que indica que cambios se realizaron"
+
+Enviar cambios al servidor
+git push origin
+
+===================================================================================
+LOG:permite ver el historial de commits o cambios realizados
+git log 
+
+git log --stats 
+muestra cuantos cambios fueron realizados (+) para contenido agregado y (-) para contenido eliminado
+
+git log --oneline  
+muestra el log en una sola linea por cada commit 
+
+git log --oneline --decore --all
+	
+
+======================================================================================
+RAMAS
+Ramas Locales
+
+para ver ramas locales 
+git branch
+
+para ver ramas remotas 
+git branch -r
+
+para ver ambas ramas 
+git branch -a
+
+para crear rama local 
+git branch <<nombre de la rama>>
+
+para cambiarse de una rama a otra
+git checkout <<nombre de la rama>>
+
+atajo para crear nueva rama y cambiarse a ella con un solo comando:
+git checkout -b <<nombre de la rama>>
+
+Renombrar una rama
+git branch -m <<nombre actual de la rama>> <<nuevo nombre de la rama>>
+
+Eliminar una rama local
+git branch -d <<nombre de la rama>>
+
+=====================================================================================
+Ramas Remotas
+
+Crear rama remota
+primero se crea una nueva rama local y luego se carga al servidor:
+git checkout -b <<NuevaRama>>
+git push origin <<nuevaRama>>
+
+Eliminar rama remota
+git push origin :<<nombreRamaRemota>>
+
+
+Renombrar rama remota
+eliminar rama remota y luego crearla desde la rama local
+
+
+Obtener cambios de rama remota a una rama local
+git pull origin <<NombredeLaRama>>
+
+convertir una rama local en una rama de seguimiento (tracking) de una rama remota
+cambiarnos a la rama con git checkout <nombreRama>
+git branch --set-upstream-to=origin/<nombreRamaRemota>
+para obtener cambios solo ejecutar git pull origin
+
+ver ramas remotas de seguimiento
+git branch -vv (dos veces v v no confundir con w)
+=====================================================================================
+MERGE O fusión
+
+Fusionar ramas locales
+nos colocamos en la rama destino y fusionamos con la rama origen
+git checkout master
+git merge <Rama desde donde obtendremos los cambios>
+Si no hay conflicto aparecerá mensaje de éxito fast fordward  o merge made by recursive, en caso de que Git no pueda hacer un automerge
+en casos en los que el mismo archivo ha sido modificado en la misma línea pedirá que se modifiquen los archivos manualmente para decidir que se va o que se queda.
+<<<<<<< HEAD (cambio actual)
+	<h2>Test one</h2>
+    <h3>OneNote</h3>
+    
+=======
+    <h3>Powerpnt</h3>
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>rama1</li>
+    </ul>
+>>>>>>> rama1 (Cambio entrante)
+
+Editar el código manualmente y guardar el o los archivos con este tipo de conflicto
+git status para ver que archivos fueron modificados y cuales estan pendientes de modificar
+git add .  para agregar archivos que se confirmarán
+git commit se escribe el texto y luego se presiona (Esc,  wq) o (Esc, shift+z) o bien git commit -m "mensaje del cambio"
+
+
+Abortar merge
+si se cambia de opinion escribir 
+git merge --abort
+
+git branch --merged (muestra las ramas fusionadas)
+git branch --no-merger (muestra las ramas no fusionadas)
+
+Fusionar ramas remotas
+se fusionan las ramas locales y se realiza push origin para que los cambios se reflejen en la rama remota
+
+==========================================================================================
+Restaurar a un punto anterior
+git checkout <<HASH del commit>>
+======================================================================================
+TAGS
+git tag <No. de versión o  cualquier etiqueta> <hash del comit>
+
