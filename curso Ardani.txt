@@ -1,0 +1,149 @@
+COMANDOS BÁSICOS TERMINAL
+
+LINUX/MAC/UNIX
+pwd : muestra la ruta de la ubicación actual
+ls: muestra listado de archivos y directorios dentro del directorio actual
+ls -a /  (cmd dir /ah) :  muestra archivos y carpetas ocultas 
+mkdir: crea nuevo directorio
+cd: cambia de directorio
+
+WINDOWS
+dir: muestra listado de archivos y directorios dentro del directorio actual
+dir /ah :  muestra archivos y carpetas ocultas 
+mkdir: crea nuevo directorio
+cd: cambia de directorio
+
+
+-----------------------------------------------------------
+CREAR NUEVO REPOSITORIO:
+NAVEGAR HASTA EL DIRECTORIO DE NUESTRA APP Y EJECUTAR EL SIGUIENTE COMANDO:
+git init
+
+MOSTRAR ESTADO DE REPOSITORIO ( si hay archivos sin seguimiento, si hay commits pendientes, etc.)
+git status
+
+SI HAY NUEVOS ARCHIVOS UNTRACKED PUEDEN AGREGARSE UTILIZANDO:
+git add --all (agrega todos los archivos) / forma abreviada git add -A
+git add --update (agrega solo archivos modificados) / git add -u
+}HACER COMMIT
+git commit -m "texto que describe los cambios realizados"
+
+DEVUELVE EL DETALLE DEL COMMIT, ENTRE ELLOS EL HASH DEL COMMIT (CÓDIGO UNICO DE LA CONFIRMACIÓN), SIRVE PARA PODER DAR MARCHA ATRÁS EN CASO DE SER NECESARIO
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+PARA INDICAR DATOS DEL USUARIO O PERSONA QUE ESTÁ USANDO GIT EN EL REPOSITORIO ACTUAL
+PARA REGISTRAR ESTOS DATOS DE FORMA GLOBAL SE DEBE UTILIZAR EL PARAMETRO GLOBAL
+git config user.name "Luis Ardani"
+git config user.email "laramirez@launion.com.gt"  
+
+git config --global user.name "Luis Ardani"
+git config --global user.email "laramirez@launion.com.gt"  
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+FORMA ABREVIADA DE HACER ADD Y COMMIT:
+git commit -a -m "texto que describe los cambios realizados"
+
+VER HISTORIAL DE COMMITS
+git log
+
+git log --stat (muestra una vista más amplia)
+
+git log --oneline (muestra todos los commits, cada uno en una sola linea)
+
+git log --graph (muestra con gráficas, cuando hay ramas se ve mejor)
+
+git log -1 (Muestra el último es como un TOP en SQL)
+
+
+//con fechas y tiempos
+git log --since 1.week (1.week/1.days, 1.years, "2019-07-24")
+git log --after 1.week (1.week/1.days, 1.years, "2019-07-24")
+git log --before 1.week (1.week/1.days, 1.years, "2019-07-24")
+git log --until 1.week (1.week/1.days, 1.years, "2019-07-24")
+
+git log --author="fulano"
+
+PARA VER EL ESTADO DE LOS ARCHIVOS EN UN COMMIT ANTERIOR
+
+
+para regresar a la rama principal
+git checkout master
+
+PARA REGRESAR UN ARCHIVO A COMO ESTABA EN UN COMMIT ANTERIOR
+git checkout <hash del commit> nombreDelArchivo
+
+
+PARA VER DIFERENCIAS ENTRE DOS COMMITS
+git diff <hash del commit a comparar>
+
+HERRAMIENTA GRÁFICA PARA VER DETALLE DE COMMITS
+gitk
+
+
+------------------------------------------------------------------------------
+IGNORAR SEGUIMIENTO DE ARCHIVOS
+crear y abrir el archivo .gitignore con algún editor de texto
+code .gitignore
+
+agregar líneas con los patrones deseados
+#Commentario
+*.pdf 
+subdirectorio/
+subdirectorio/nombredelarchivo.extension
+------------------------------------------------------------------------------
+
+CLONAR REPOSITORIO REMOTO
+git clone https://github.com/usuario/guiaReact.git <opcional nombre del directorio local>
+
+VER DETALLE DEL REPOSITORIO REMOTO
+git remote -v
+
+OBTENER CAMBIOS USANDO FETCH Y MERGE
+git fetch origin master
+git merge origin master
+
+OBTENER CAMBIOS USANDO PULL
+git pull origin master
+
+SUBIR CAMBIOS A REPOSITORIO REMOTO
+git push origin master
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------
+PARA CAMBIAR TEXTO DE UN COMMIT
+git commit --amend 
+se abre una editor donde se puede editar el texto.
+presionar esc para salir del modo insert
+escribir :wq para salir
+
+
+
+QUITAR UN CAMBIO DEL STAGING AREA
+git reset HEAD nombreArchivo.extension
+
+DESCARTAR CUALQUIER CAMBIO REALIZADO DESPUES DEL ÚLTIMO COMMIT EN UN ARCHIVO
+git checkout -- nombreArchivo.extension
+
+DESCARTAR CUALQUIER CAMBIO REALIZADO DESPUES DEL ÚLTIMO COMMIT EN TODOS LOS ARCHIVOS
+git reset HEAD --hard
+
+ELIMINAR EL ULTIMO COMMIT REALIZADO
+git reset HEAD^ --hard
+
+
+
+
+
+
+
+
+
+
+
