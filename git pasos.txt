@@ -10,7 +10,7 @@ git add
 crear un commit
 git commit -m "Texto que indica que cambios se realizaron"
 
-Método abreviado para realizar y comit en un mismo comando
+Método abreviado para realizar add y comit en un mismo comando
 git commit -a -m "Texto que indica que cambios se realizaron"
 
 Enviar cambios al servidor
@@ -20,13 +20,13 @@ git push origin
 LOG:permite ver el historial de commits o cambios realizados
 git log 
 
-git log --stats 
+git log --stat 
 muestra cuantos cambios fueron realizados (+) para contenido agregado y (-) para contenido eliminado
 
 git log --oneline  
 muestra el log en una sola linea por cada commit 
 
-git log --oneline --decore --all
+git log --oneline --decorate --all
 	
 
 ======================================================================================
