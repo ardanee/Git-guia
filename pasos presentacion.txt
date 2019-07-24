@@ -1,0 +1,20 @@
+//PASOS PARA PRESENTACIÓN
+
+https://git-scm.com/download/win
+
+git init
+git status
+
+1. Crear archivo test.txt y agregar texto Prueba #1
+2. git add test.txt
+3. git commit -m "primer commit"
+4. git status
+5. Agregar texto Prueba #2
+6. git add . 
+7. git commit -m "segundo commit"
+8. Agregar texto Prueba #3
+9. Crear foo.txt con texto segundo archivo
+10. git add .
+11. git commit -m "Tercer commit"
+
+
